@@ -1,9 +1,19 @@
 import { useEffect, useState } from 'react'
-import { FiFolder, FiLayers, FiMail, FiMenu, FiUser, FiX } from 'react-icons/fi'
+import {
+  FiFolder,
+  FiLayers,
+  FiMail,
+  FiMenu,
+  FiMoon,
+  FiSun,
+  FiUser,
+  FiX,
+} from 'react-icons/fi'
 import ramelPortrait from './assets/ramel-1.jpg'
 import './App.css'
 
 const sectionIds = ['hero', 'about', 'work', 'contacts'] as const
+const THEME_STORAGE_KEY = 'ramportfolio-theme'
 
 const projects = [
   {
@@ -73,8 +83,21 @@ function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   const [showUfoHelper, setShowUfoHelper] = useState(false)
   const [isUfoReturning, setIsUfoReturning] = useState(false)
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    if (typeof window === 'undefined') {
+      return 'dark'
+    }
+
+    const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)
+    return storedTheme === 'light' ? 'light' : 'dark'
+  })
   const [activeSection, setActiveSection] =
     useState<(typeof sectionIds)[number]>('hero')
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme)
+  }, [theme])
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -246,6 +269,28 @@ function App() {
             onClick={() => setIsMobileNavOpen((open) => !open)}
           >
             {isMobileNavOpen ? <FiX /> : <FiMenu />}
+          </button>
+
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-label={
+              theme === 'dark'
+                ? 'Switch to light theme'
+                : 'Switch to dark theme'
+            }
+            onClick={() =>
+              setTheme((currentTheme) =>
+                currentTheme === 'dark' ? 'light' : 'dark',
+              )
+            }
+          >
+            <span className="theme-toggle-icon" aria-hidden="true">
+              {theme === 'dark' ? <FiSun /> : <FiMoon />}
+            </span>
+            <span className="theme-toggle-label">
+              {theme === 'dark' ? 'Light' : 'Dark'}
+            </span>
           </button>
 
           <nav className={`nav ${isMobileNavOpen ? 'nav--open' : ''}`}>
