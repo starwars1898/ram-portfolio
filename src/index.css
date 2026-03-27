@@ -1,0 +1,69 @@
+:root {
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #b7d8e2;
+  background:
+    radial-gradient(circle at top, #17335a 0%, #091120 42%, #030711 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --page-bg: #030711;
+  --panel: rgba(6, 15, 28, 0.92);
+  --line: rgba(125, 255, 226, 0.18);
+  --text: #b7d8e2;
+  --text-soft: #8cb3c0;
+  --text-strong: #ecfff8;
+  --accent: #7dffe2;
+  --accent-2: #d8ff70;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(65, 124, 147, 0.28), transparent 30%),
+    radial-gradient(circle at 85% 15%, rgba(216, 255, 112, 0.12), transparent 24%),
+    radial-gradient(circle at bottom, rgba(45, 108, 117, 0.18), transparent 35%),
+    var(--page-bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 0.04em;
+  color: var(--text-strong);
+}

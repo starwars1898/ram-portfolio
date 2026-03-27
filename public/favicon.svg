@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientTransform="translate(32 32) rotate(90) scale(28)">
+      <stop offset="0" stop-color="#123544" />
+      <stop offset="1" stop-color="#06131f" />
+    </radialGradient>
+    <radialGradient id="head" cx="0" cy="0" r="1" gradientTransform="translate(32 24) rotate(90) scale(20 16)">
+      <stop offset="0" stop-color="#effff9" />
+      <stop offset="0.62" stop-color="#8dfde7" />
+      <stop offset="1" stop-color="#2b7a73" />
+    </radialGradient>
+    <filter id="glow" x="4" y="4" width="56" height="56" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="4" />
+    </filter>
+  </defs>
+  <circle cx="32" cy="32" r="28" fill="url(#bg)" />
+  <circle cx="32" cy="32" r="25" stroke="#7dffe2" stroke-opacity=".16" />
+  <ellipse cx="32" cy="26" rx="16" ry="20" fill="#7dffe2" fill-opacity=".24" filter="url(#glow)" />
+  <path
+    d="M32 10c-8.8 0-15 6.9-15 16.1C17 37.8 23.5 46 32 46s15-8.2 15-19.9C47 16.9 40.8 10 32 10Z"
+    fill="url(#head)"
+  />
+  <ellipse cx="25.5" cy="26.5" rx="3.4" ry="7.3" transform="rotate(18 25.5 26.5)" fill="#10282b" />
+  <ellipse cx="38.5" cy="26.5" rx="3.4" ry="7.3" transform="rotate(-18 38.5 26.5)" fill="#10282b" />
+</svg>
